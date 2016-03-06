@@ -1,0 +1,20 @@
+default:
+  suites:
+    access:
+      paths: [ %paths.base%/app/tests/behat/features ]
+      contexts: 
+        - Mip\Tests\Behat\RestrictedAccessContext
+  extensions:
+    Behat\MinkExtension:
+      base_url: isg-db-webdev/windstream/index.php
+      browser_name: firefox
+      sessions:
+            default_session:
+                goutte: ~
+            selenium_session:
+                selenium2:
+                      wd_host: http://192.168.1.17:4445/wd/hub
+                      capabilities:
+                        version: ''
+      goutte: ~
+      selenium2: ~
